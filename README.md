@@ -1,6 +1,6 @@
 # CS-541-HW-3
 
-##This is only problem 3
+## This is only problem 3
 
 ![image](https://github.com/user-attachments/assets/56435f84-d9cc-4ab7-a4fb-f85fb4085beb)
 
