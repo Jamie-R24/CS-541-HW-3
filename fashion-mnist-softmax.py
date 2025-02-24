@@ -11,22 +11,21 @@ class SoftmaxClassifier:
         self.alpha = alpha
         self.batch_size = batch_size
         
-        # Initialize weights and biases
         # Using small random values for better convergence
         self.W = np.random.randn(input_size, num_classes) * 0.01
         self.b = np.zeros(num_classes)
     
     def softmax(self, z: np.ndarray) -> np.ndarray:
         """Compute softmax values for each set of scores in z."""
-        # Subtract max for numerical stability
+    
         exp_z = np.exp(z - np.max(z, axis=1, keepdims=True))
         return exp_z / np.sum(exp_z, axis=1, keepdims=True)
     
     def forward(self, X: np.ndarray) -> np.ndarray:
         """Forward pass to compute class probabilities."""
-        # Compute logits
+        
         z = np.dot(X, self.W) + self.b
-        # Apply softmax to get probabilities
+        
         return self.softmax(z)
     
     def compute_loss(self, X: np.ndarray, y: np.ndarray) -> Tuple[float, np.ndarray]:
@@ -34,15 +33,15 @@ class SoftmaxClassifier:
         N = X.shape[0]
         probs = self.forward(X)
         
-        # Convert labels to one-hot encoding
+        
         y_one_hot = np.zeros((N, self.num_classes))
         y_one_hot[np.arange(N), y] = 1
         
-        # Cross entropy loss
+        
         correct_logprobs = -np.log(probs[range(N), y])
         data_loss = np.sum(correct_logprobs) / N
         
-        # L2 regularization (only on weights, not biases)
+        
         reg_loss = 0.5 * self.alpha * np.sum(self.W * self.W)
         
         return data_loss + reg_loss, probs
@@ -51,25 +50,22 @@ class SoftmaxClassifier:
         """Compute gradients and update parameters."""
         N = X.shape[0]
         
-        # Gradient of cross-entropy loss with respect to logits
         dscores = probs.copy()
         dscores[range(N), y] -= 1
         dscores /= N
-        
-        # Gradients with respect to weights and bias
+       
         dW = np.dot(X.T, dscores)
         db = np.sum(dscores, axis=0)
         
-        # Add regularization gradient (only for weights)
         dW += self.alpha * self.W
-        
-        # Update parameters
+
         self.W -= self.learning_rate * dW
         self.b -= self.learning_rate * db
     
     def train(self, X_train: np.ndarray, y_train: np.ndarray, 
               X_val: np.ndarray, y_val: np.ndarray, 
               num_epochs: int, verbose: bool = True) -> List[float]:
+        
         """Train the model using mini-batch SGD."""
         num_train = X_train.shape[0]
         train_losses = []
@@ -77,23 +73,20 @@ class SoftmaxClassifier:
         best_params = None
         
         for epoch in range(num_epochs):
-            # Shuffle training data
+            
             indices = np.random.permutation(num_train)
             X_train = X_train[indices]
             y_train = y_train[indices]
-            
-            # Mini-batch training
+
             for i in range(0, num_train, self.batch_size):
                 X_batch = X_train[i:i + self.batch_size]
                 y_batch = y_train[i:i + self.batch_size]
-                
-                # Forward and backward passes
+
                 probs = self.forward(X_batch)
                 loss, _ = self.compute_loss(X_batch, y_batch)
                 train_losses.append(loss)
                 self.backward(X_batch, y_batch, probs)
-            
-            # Evaluate on validation set
+
             val_loss, val_acc = self.evaluate(X_val, y_val)
             
             if val_acc > best_val_acc:
@@ -102,8 +95,7 @@ class SoftmaxClassifier:
             
             if verbose and epoch % 5 == 0:
                 print(f"Epoch {epoch}: val_loss = {val_loss:.4f}, val_acc = {val_acc:.4f}")
-        
-        # Restore best parameters
+
         if best_params is not None:
             self.W, self.b = best_params
         
@@ -122,27 +114,24 @@ class SoftmaxClassifier:
         return loss, accuracy
 
 def train_and_evaluate():
-    # Load data
+
     train_images = np.load('fashion_mnist_train_images.npy')
     train_labels = np.load('fashion_mnist_train_labels.npy')
     test_images = np.load('fashion_mnist_test_images.npy')
     test_labels = np.load('fashion_mnist_test_labels.npy')
     
-    # Open results file
+    #Putting all the results in a text file for easier access and readability
     with open('results.txt', 'w') as f:
         f.write("Fashion MNIST Classification Results\n")
         f.write("===================================\n\n")
         
-        # Normalize pixel values
         train_images = train_images / 255.0
         test_images = test_images / 255.0
-        
-        # Split training data into train and validation sets
+
         X_train, X_val, y_train, y_val = train_test_split(
             train_images, train_labels, test_size=0.2, random_state=42
         )
-        
-        # Hyperparameter grid
+
         learning_rates = [1e-4, 1e-3, 1e-2, 1e-1]
         alphas = [1e-5, 1e-4, 1e-3, 1e-2, 1e-1]
         batch_sizes = [32, 64, 128, 256]
@@ -153,8 +142,7 @@ def train_and_evaluate():
         
         f.write("Hyperparameter Search Results:\n")
         f.write("-----------------------------\n")
-        
-        # Grid search
+
         for lr in learning_rates:
             for alpha in alphas:
                 for batch_size in batch_sizes:
@@ -169,11 +157,9 @@ def train_and_evaluate():
                         alpha=alpha,
                         batch_size=batch_size
                     )
-                    
-                    # Train for a few epochs to evaluate hyperparameters
+  
                     model.train(X_train, y_train, X_val, y_val, num_epochs=5, verbose=False)
-                    
-                    # Evaluate on validation set
+
                     val_loss, val_acc = model.evaluate(X_val, y_val)
                     result = f"Validation accuracy: {val_acc:.4f}"
                     print(result)
@@ -195,18 +181,15 @@ def train_and_evaluate():
             result = f"{param}: {value}"
             print(result)
             f.write(result + '\n')
-        
-        # Train final model with best parameters
+
         final_model = SoftmaxClassifier(
             input_size=784,
             num_classes=10,
             **best_params
         )
-        
-        # Train for more epochs with best parameters
+
         train_losses = final_model.train(X_train, y_train, X_val, y_val, num_epochs=30)
-        
-        # Evaluate on test set
+
         test_loss, test_acc = final_model.evaluate(test_images, test_labels)
         
         f.write('\nFinal Test Set Performance:\n')
@@ -224,8 +207,7 @@ def train_and_evaluate():
 
 if __name__ == "__main__":
     test_loss, test_acc, train_losses = train_and_evaluate()
-    
-    # Plot training loss
+
     plt.figure(figsize=(10, 5))
     plt.plot(train_losses)
     plt.title('Training Loss Over Time')
