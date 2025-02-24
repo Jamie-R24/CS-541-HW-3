@@ -1,7 +1,7 @@
 # CS-541-HW-3
 
 ## This is only problem 3
-### Data download files
+### Data download links:
 - [fashion_mnist_train_images.npy](https://s3.amazonaws.com/jrwprojects/fashion_mnist_train_images.npy)
 - [fashion_mnist_train_labels.npy](https://s3.amazonaws.com/jrwprojects/fashion_mnist_train_labels.npy)
 - [fashion_mnist_test_images.npy](https://s3.amazonaws.com/jrwprojects/fashion_mnist_test_images.npy)
