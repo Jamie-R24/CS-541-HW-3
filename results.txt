@@ -1,0 +1,258 @@
+Fashion MNIST Classification Results
+===================================
+
+Hyperparameter Search Results:
+-----------------------------
+
+Trying lr=0.0001, alpha=1e-05, batch_size=32
+Validation accuracy: 0.6587
+
+Trying lr=0.0001, alpha=1e-05, batch_size=64
+Validation accuracy: 0.6338
+
+Trying lr=0.0001, alpha=1e-05, batch_size=128
+Validation accuracy: 0.5917
+
+Trying lr=0.0001, alpha=1e-05, batch_size=256
+Validation accuracy: 0.3376
+
+Trying lr=0.0001, alpha=0.0001, batch_size=32
+Validation accuracy: 0.6541
+
+Trying lr=0.0001, alpha=0.0001, batch_size=64
+Validation accuracy: 0.6448
+
+Trying lr=0.0001, alpha=0.0001, batch_size=128
+Validation accuracy: 0.5653
+
+Trying lr=0.0001, alpha=0.0001, batch_size=256
+Validation accuracy: 0.4157
+
+Trying lr=0.0001, alpha=0.001, batch_size=32
+Validation accuracy: 0.6568
+
+Trying lr=0.0001, alpha=0.001, batch_size=64
+Validation accuracy: 0.6484
+
+Trying lr=0.0001, alpha=0.001, batch_size=128
+Validation accuracy: 0.5897
+
+Trying lr=0.0001, alpha=0.001, batch_size=256
+Validation accuracy: 0.4842
+
+Trying lr=0.0001, alpha=0.01, batch_size=32
+Validation accuracy: 0.6586
+
+Trying lr=0.0001, alpha=0.01, batch_size=64
+Validation accuracy: 0.6465
+
+Trying lr=0.0001, alpha=0.01, batch_size=128
+Validation accuracy: 0.5995
+
+Trying lr=0.0001, alpha=0.01, batch_size=256
+Validation accuracy: 0.4646
+
+Trying lr=0.0001, alpha=0.1, batch_size=32
+Validation accuracy: 0.6538
+
+Trying lr=0.0001, alpha=0.1, batch_size=64
+Validation accuracy: 0.6504
+
+Trying lr=0.0001, alpha=0.1, batch_size=128
+Validation accuracy: 0.5739
+
+Trying lr=0.0001, alpha=0.1, batch_size=256
+Validation accuracy: 0.4329
+
+Trying lr=0.001, alpha=1e-05, batch_size=32
+Validation accuracy: 0.7559
+
+Trying lr=0.001, alpha=1e-05, batch_size=64
+Validation accuracy: 0.7201
+
+Trying lr=0.001, alpha=1e-05, batch_size=128
+Validation accuracy: 0.6776
+
+Trying lr=0.001, alpha=1e-05, batch_size=256
+Validation accuracy: 0.6600
+
+Trying lr=0.001, alpha=0.0001, batch_size=32
+Validation accuracy: 0.7558
+
+Trying lr=0.001, alpha=0.0001, batch_size=64
+Validation accuracy: 0.7172
+
+Trying lr=0.001, alpha=0.0001, batch_size=128
+Validation accuracy: 0.6803
+
+Trying lr=0.001, alpha=0.0001, batch_size=256
+Validation accuracy: 0.6620
+
+Trying lr=0.001, alpha=0.001, batch_size=32
+Validation accuracy: 0.7552
+
+Trying lr=0.001, alpha=0.001, batch_size=64
+Validation accuracy: 0.7186
+
+Trying lr=0.001, alpha=0.001, batch_size=128
+Validation accuracy: 0.6783
+
+Trying lr=0.001, alpha=0.001, batch_size=256
+Validation accuracy: 0.6595
+
+Trying lr=0.001, alpha=0.01, batch_size=32
+Validation accuracy: 0.7532
+
+Trying lr=0.001, alpha=0.01, batch_size=64
+Validation accuracy: 0.7180
+
+Trying lr=0.001, alpha=0.01, batch_size=128
+Validation accuracy: 0.6775
+
+Trying lr=0.001, alpha=0.01, batch_size=256
+Validation accuracy: 0.6659
+
+Trying lr=0.001, alpha=0.1, batch_size=32
+Validation accuracy: 0.7439
+
+Trying lr=0.001, alpha=0.1, batch_size=64
+Validation accuracy: 0.7067
+
+Trying lr=0.001, alpha=0.1, batch_size=128
+Validation accuracy: 0.6753
+
+Trying lr=0.001, alpha=0.1, batch_size=256
+Validation accuracy: 0.6567
+
+Trying lr=0.01, alpha=1e-05, batch_size=32
+Validation accuracy: 0.8265
+
+Trying lr=0.01, alpha=1e-05, batch_size=64
+Validation accuracy: 0.8143
+
+Trying lr=0.01, alpha=1e-05, batch_size=128
+Validation accuracy: 0.7981
+
+Trying lr=0.01, alpha=1e-05, batch_size=256
+Validation accuracy: 0.7666
+
+Trying lr=0.01, alpha=0.0001, batch_size=32
+Validation accuracy: 0.8285
+
+Trying lr=0.01, alpha=0.0001, batch_size=64
+Validation accuracy: 0.8157
+
+Trying lr=0.01, alpha=0.0001, batch_size=128
+Validation accuracy: 0.7939
+
+Trying lr=0.01, alpha=0.0001, batch_size=256
+Validation accuracy: 0.7658
+
+Trying lr=0.01, alpha=0.001, batch_size=32
+Validation accuracy: 0.8251
+
+Trying lr=0.01, alpha=0.001, batch_size=64
+Validation accuracy: 0.8157
+
+Trying lr=0.01, alpha=0.001, batch_size=128
+Validation accuracy: 0.7938
+
+Trying lr=0.01, alpha=0.001, batch_size=256
+Validation accuracy: 0.7688
+
+Trying lr=0.01, alpha=0.01, batch_size=32
+Validation accuracy: 0.8222
+
+Trying lr=0.01, alpha=0.01, batch_size=64
+Validation accuracy: 0.8111
+
+Trying lr=0.01, alpha=0.01, batch_size=128
+Validation accuracy: 0.7951
+
+Trying lr=0.01, alpha=0.01, batch_size=256
+Validation accuracy: 0.7639
+
+Trying lr=0.01, alpha=0.1, batch_size=32
+Validation accuracy: 0.7811
+
+Trying lr=0.01, alpha=0.1, batch_size=64
+Validation accuracy: 0.7833
+
+Trying lr=0.01, alpha=0.1, batch_size=128
+Validation accuracy: 0.7711
+
+Trying lr=0.01, alpha=0.1, batch_size=256
+Validation accuracy: 0.7536
+
+Trying lr=0.1, alpha=1e-05, batch_size=32
+Validation accuracy: 0.8422
+
+Trying lr=0.1, alpha=1e-05, batch_size=64
+Validation accuracy: 0.8478
+
+Trying lr=0.1, alpha=1e-05, batch_size=128
+Validation accuracy: 0.8403
+
+Trying lr=0.1, alpha=1e-05, batch_size=256
+Validation accuracy: 0.8252
+
+Trying lr=0.1, alpha=0.0001, batch_size=32
+Validation accuracy: 0.8406
+
+Trying lr=0.1, alpha=0.0001, batch_size=64
+Validation accuracy: 0.8454
+
+Trying lr=0.1, alpha=0.0001, batch_size=128
+Validation accuracy: 0.8367
+
+Trying lr=0.1, alpha=0.0001, batch_size=256
+Validation accuracy: 0.8303
+
+Trying lr=0.1, alpha=0.001, batch_size=32
+Validation accuracy: 0.8378
+
+Trying lr=0.1, alpha=0.001, batch_size=64
+Validation accuracy: 0.8409
+
+Trying lr=0.1, alpha=0.001, batch_size=128
+Validation accuracy: 0.8388
+
+Trying lr=0.1, alpha=0.001, batch_size=256
+Validation accuracy: 0.8268
+
+Trying lr=0.1, alpha=0.01, batch_size=32
+Validation accuracy: 0.8261
+
+Trying lr=0.1, alpha=0.01, batch_size=64
+Validation accuracy: 0.8270
+
+Trying lr=0.1, alpha=0.01, batch_size=128
+Validation accuracy: 0.8268
+
+Trying lr=0.1, alpha=0.01, batch_size=256
+Validation accuracy: 0.8257
+
+Trying lr=0.1, alpha=0.1, batch_size=32
+Validation accuracy: 0.7684
+
+Trying lr=0.1, alpha=0.1, batch_size=64
+Validation accuracy: 0.7682
+
+Trying lr=0.1, alpha=0.1, batch_size=128
+Validation accuracy: 0.7808
+
+Trying lr=0.1, alpha=0.1, batch_size=256
+Validation accuracy: 0.7717
+
+
+Best hyperparameters found:
+learning_rate: 0.1
+alpha: 1e-05
+batch_size: 64
+
+Final Test Set Performance:
+-------------------------
+Cross-entropy loss: 0.4486
+Classification accuracy: 0.8423
+
+Results have been saved to results.txt
